@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List</title>
+</head>
+<body>
+  <h2>My Posts</h2>
+
+    <ol>
+        {% for p in posts %}
+            <li>
+                <h5> <b>{{ p.title }}</b> </h5>
+                    {{ p.text }}
+
+            </li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
+
+

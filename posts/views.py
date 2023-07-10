@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+# my models
 from django.shortcuts import render
 
 # my models
@@ -9,5 +9,10 @@ from .models import *
 def post_list(Request):
     posts = Post.objects.all()
     context = {'posts': posts}
-    rend = render(Request, "/posts/posts_list.html", context)
-    return HttpResponse(rend)
+    return render(Request, "./posts/post_list.html", context)
+
+
+def post_view(Request, post_id):
+    post = Post.objects.get(pk=post_id)
+    context = {"post": post}
+    return render(Request, "./posts/post_view.html", context)
