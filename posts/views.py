@@ -14,5 +14,9 @@ def post_list(Request):
 
 def post_view(Request, post_id):
     post = Post.objects.get(pk=post_id)
-    context = {"post": post}
+    comment = Comment.objects.filter(post=post)
+    context = {
+        "post": post,
+        "comment ": comment,
+    }
     return render(Request, "./posts/post_view.html", context)
