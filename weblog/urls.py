@@ -22,7 +22,8 @@ from posts.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts', post_list, name="post-list"),
-    path('posts/<int:post_id>', post_view, name="post-view"),
-    path('posts/create', post_create, name="post-create")
+    # path('posts/', post_list, name="post-list"),
+    path("posts/", PostList.as_view()),
+    path('posts/<int:post_id>/', post_detail, name="post-view"),
+    path('posts/create/', post_create, name="post-create")
 ]

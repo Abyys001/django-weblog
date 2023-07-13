@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.views import generic
 
 # my forms
 from .forms import PostForm
@@ -8,18 +9,24 @@ from .models import *
 
 
 # Create your views here.
+
 def post_list(request):
     posts = Post.objects.all()
     context = {'posts': posts}
     return render(request, "./posts/post_list.html", context)
 
 
-def post_view(request, post_id):
+class PostList(generic.ListView):
+    queryset = Post.objects.all()
+    context_object_name = "posts"
+    template_name = 'posts/post_list.html'
+
+
+def post_detail(request, post_id):
     # try:
     #     post = Post.objects.get(pk=post_id)
     # except Post.DoesNotExist:
     #     return HttpResponseNotFound("<h1>Post Does NOT Exist!!</h1>")
-
 
     post = get_object_or_404(Post, pk=post_id)
     comment = Comment.objects.filter(post=post)
@@ -27,7 +34,14 @@ def post_view(request, post_id):
         "post": post,
         "comment ": comment,
     }
-    return render(request, "./posts/post_view.html", context)
+    return render(request, "./posts/post_detail.html", context)
+
+
+class PostDetail(generic.ListView):
+    queryset = get_object_or_404(Post, pk=post_id)
+
+    context_object_name = 'post', 'comment'
+    template_name = './posts/post_detail.html'
 
 
 def post_create(request):
@@ -40,6 +54,3 @@ def post_create(request):
         form = PostForm()
 
     return render(request, './posts/post_create.html', {'form': form})
-
-
-
