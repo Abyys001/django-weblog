@@ -10,7 +10,7 @@
     <ol>
         {% for p in posts %}
             <li>
-                <h5> <b>{{ p.title }}</b> (<a href="/posts">view</a>)</h5>
+                <h5> <b>{{ p.title }}</b> (<a href="/posts/{{ p.pk }}">view</a>)</h5>
 
             </li>
         {% endfor %}
