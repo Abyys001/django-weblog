@@ -37,12 +37,12 @@ def post_detail(request, post_id):
     return render(request, "./posts/post_detail.html", context)
 
 
-class PostDetail(generic.ListView):
-    queryset = get_object_or_404(Post, pk=post_id)
-
-    context_object_name = 'post', 'comment'
-    template_name = './posts/post_detail.html'
-
+# class PostDetail(generic.ListView):
+#     queryset = get_object_or_404(Post, pk=post_id)
+#
+#     context_object_name = 'post', 'comment'
+#     template_name = './posts/post_detail.html'
+#
 
 def post_create(request):
     if request.method == "POST":
