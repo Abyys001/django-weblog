@@ -2,6 +2,13 @@ from django.db import models
 
 
 # Create your models here.
+
+class PostLiveManager(models.Manager):
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(is_enable=True)
+        return queryset
+
 class Post(models.Model):
     title = models.CharField(max_length=50)
     text = models.TextField(blank=True)
@@ -9,6 +16,8 @@ class Post(models.Model):
     published_date = models.DateField(null=True, blank=True)
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(auto_now=True)
+
+    live = PostLiveManager()
 
     def __str__(self):
         return f"{self.pk}- {self.title}"
