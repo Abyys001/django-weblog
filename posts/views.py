@@ -15,7 +15,16 @@ from .models import *
 # Create your views here.
 @api_view(["GET"])
 def home(request):
-    return Response("welcome to my weblog")
+    json = {
+        "Engineer": {
+            "fname": "siavash",
+            "lname": "drv",
+            "nick name":"Abyys01",
+            "age": 19,
+        }
+    }
+    return Response(json)
+
 
 def post_list(request):
     posts = Post.objects.all()
