@@ -3,10 +3,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 
 # rest_framework
-from rest_framework.response import responses
+from rest_framework.response import Response
 from rest_framework.decorators import api_view
-
-
 
 # my forms
 from .forms import PostForm
@@ -17,7 +15,7 @@ from .models import *
 # Create your views here.
 @api_view(["GET"])
 def home(request):
-    return responses("welcome to my weblog")
+    return Response("welcome to my weblog")
 
 def post_list(request):
     posts = Post.objects.all()
