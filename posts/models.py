@@ -17,6 +17,9 @@ class Post(models.Model):
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(auto_now=True)
 
+    objects = models.Manager()
+
+
     live = PostLiveManager()
 
     def __str__(self):
