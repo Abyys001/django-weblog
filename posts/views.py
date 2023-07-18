@@ -7,6 +7,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 
+from .serializers import PostSerializer
+
 # my forms
 from .forms import PostForm
 # my models
@@ -16,6 +18,16 @@ from .models import *
 # Create your views here.
 @api_view(["GET"])
 def home(request):
+
+    pk = request.query_params.get('pk')
+
+    if type(pk) != int:
+        return Response({"detail": "Post does not exist!!"}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        p = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        return Response({"detail": "Post does not exist!!"}, status=status.HTTP_404_NOT_FOUND)
     json = {
         "Engineer": {
             "fname": "siavash",
@@ -24,15 +36,12 @@ def home(request):
             "age": 19,
         }
     }
-    return Response(json)
+    serializer = PostSerializer(p)
+    return Response(serializer.data)
    
 
 def post_list(request):
     posts = Post.objects.all()
-    try:
-        p = Post.objects.get(pk=100)
-    except Post.DoesNotExist:
-        return Response({"detail": "Post does not exist!!"}, status=status.HTTP_404_NOT_FOUND)
     context = {'posts': posts}
     return render(request, "./posts/post_list.html", context)
 
