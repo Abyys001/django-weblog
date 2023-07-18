@@ -21,48 +21,21 @@ def home(request):
 
     pk = request.query_params.get('pk')
 
-    if type(pk) != int:
-        return Response({"detail": "Post does not exist!!"}, status=status.HTTP_400_BAD_REQUEST)
-
     try:
         p = Post.objects.get(pk=pk)
     except Post.DoesNotExist:
         return Response({"detail": "Post does not exist!!"}, status=status.HTTP_404_NOT_FOUND)
-    json = {
-        "Engineer": {
-            "fname": "siavash",
-            "lname": "drv",
-            "nick name":"Abyys01",
-            "age": 19,
-        }
-    }
+    except ValueError:
+        return Response({"detail": "Post dose not exits"}, status=status.HTTP_400_BAD_REQUEST)
+
     serializer = PostSerializer(p)
     return Response(serializer.data)
    
-
-def post_list(request):
-    posts = Post.objects.all()
-    context = {'posts': posts}
-    return render(request, "./posts/post_list.html", context)
-
 
 class PostList(generic.ListView):
     queryset = Post.objects.all()
     context_object_name = "posts"
     template_name = 'posts/post_list.html'
-
-
-def post_detail(request, post_id):
-    # try:
-    #     post = Post.objects.get(pk=post_id)
-    # except Post.DoesNotExist:
-    #     return HttpResponseNotFound("<h1>Post Does NOT Exist!!</h1>")
-
-    post = get_object_or_404(Post, pk=post_id)
-    comment = Comment.objects.filter(post=post)
-    context = {"post": post, "comment ": comment, }
-    return render(request, "./posts/post_detail.html", context)
-
 
 class PostDetail(generic.DetailView):
     model = Post
