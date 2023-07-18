@@ -5,6 +5,7 @@ from django.views import generic
 # rest_framework
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework import status
 
 # my forms
 from .forms import PostForm
@@ -24,10 +25,14 @@ def home(request):
         }
     }
     return Response(json)
-
+   
 
 def post_list(request):
     posts = Post.objects.all()
+    try:
+        p = Post.objects.get(pk=100)
+    except Post.DoesNotExist:
+        return Response({"detail": "Post does not exist!!"}, status=status.HTTP_404_NOT_FOUND)
     context = {'posts': posts}
     return render(request, "./posts/post_list.html", context)
 
