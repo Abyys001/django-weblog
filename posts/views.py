@@ -16,10 +16,10 @@ from .models import *
 
 
 # Create your views here.
-@api_view(["GET"])
+@api_view(["GET", "POST"])
 def home(request):
 
-    pk = request.query_params.get('pk')
+    pk = request.data.get('pk')
 
     try:
         p = Post.objects.get(pk=pk)
