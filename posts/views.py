@@ -8,6 +8,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
+from rest_framework import generics
 from rest_framework import mixins
 
 # My model
@@ -16,40 +17,7 @@ from .models import Post
 # My serializer 
 from .serializers import PostSerializer
 
-
-class PostListView(mixins.ListModelMixin,
-                   mixins.CreateModelMixin,
-                   mixins.RetrieveModelMixin,
-                   GenericAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-
-    def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs)
-    
-    
-    def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
-    
-
-class PostDetailView(mixins.RetrieveModelMixin,
-                    mixins.UpdateModelMixin,
-                    mixins.DestroyModelMixin,
-                    GenericAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-
-    def get(self, request, pk, *args, **kwargs):
-        return self.retrieve(request, pk, *args, **kwargs)
-    
-    def put(self, request, pk, *args, **kwargs):
-        return self.update(request, pk, *args, **kwargs)
-
-    def delete(self, request, pk, *args, **kwargs):
-        return self.destroy(request, pk, *args, **kwargs)
-    
-
-
+##################### LAZINESS LEVEL 1 #####################
 
 # class PostListView(APIView):
     
@@ -107,5 +75,49 @@ class PostDetailView(mixins.RetrieveModelMixin,
 #         post.delete()
 #         return Response("Post has been deleted", status=status.HTTP_204_NO_CONTENT)
 
+
+##################### LAZINESS LEVEL 2 #####################
+
+# class PostListView(mixins.ListModelMixin,
+#                    mixins.CreateModelMixin,
+#                    mixins.RetrieveModelMixin,
+#                    GenericAPIView):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+
+#     def get(self, request, *args, **kwargs):
+#         return self.list(request, *args, **kwargs)
+    
+    
+#     def post(self, request, *args, **kwargs):
+#         return self.create(request, *args, **kwargs)
+    
+
+# class PostDetailView(mixins.RetrieveModelMixin,
+#                     mixins.UpdateModelMixin,
+#                     mixins.DestroyModelMixin,
+#                     GenericAPIView):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+
+#     def get(self, request, pk, *args, **kwargs):
+#         return self.retrieve(request, pk, *args, **kwargs)
+    
+#     def put(self, request, pk, *args, **kwargs):
+#         return self.update(request, pk, *args, **kwargs)
+
+#     def delete(self, request, pk, *args, **kwargs):
+#         return self.destroy(request, pk, *args, **kwargs)
+    
+##################### LAZINESS LEVEL 3 #####################
+
+class PostListView(generics.ListCreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    
 
 # CRUD -- Create, Retrieve, Update, Delete
