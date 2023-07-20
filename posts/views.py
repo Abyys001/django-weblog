@@ -118,6 +118,7 @@ class PostListView(generics.ListCreateAPIView):
 class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    
+
+
 
 # CRUD -- Create, Retrieve, Update, Delete
