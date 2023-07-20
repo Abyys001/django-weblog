@@ -3,7 +3,7 @@
 from django.urls import path
 
 # My views
-from .views import PostListView, PostDetailView
+from .views import PostListView , PostDetailView
 
 urlpatterns = [
     
