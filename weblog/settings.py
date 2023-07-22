@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     # restAPI
     'rest_framework',
     # My Apps
-    'posts'
+    'posts',
+    'profiles',
+    
 ]
 
 MIDDLEWARE = [
