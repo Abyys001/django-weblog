@@ -10,6 +10,7 @@ from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 from rest_framework import generics
 from rest_framework import mixins
+from rest_framework import viewsets
 
 # My model
 from .models import Post
@@ -111,14 +112,22 @@ from .serializers import PostSerializer
     
 ##################### LAZINESS LEVEL 3 #####################
 
-class PostListView(generics.ListCreateAPIView):
-    queryset = Post.objects.all()
+# class PostListView(generics.ListCreateAPIView):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+
+# class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+
+##################### LAZINESS LEVEL GOD MODE #####################
+
+class PostView(viewsets.ModelViewSet):
+    """
+    A viewset for viewing and editing user instances.
+    """
     serializer_class = PostSerializer
-
-class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
-    serializer_class = PostSerializer
-
-
+    
 
 # CRUD -- Create, Retrieve, Update, Delete

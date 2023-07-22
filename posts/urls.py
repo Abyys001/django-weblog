@@ -2,13 +2,18 @@
 
 from django.urls import path
 
+# importing router
+from rest_framework.routers import DefaultRouter
+
 # My views
-from .views import PostListView , PostDetailView
+# from .views import PostListView , PostDetailView
+from .views import PostView
 
-urlpatterns = [
-    
-    path('', PostListView.as_view(), name='post-detail'),
+# router object
+router = DefaultRouter()
 
-    path("<int:pk>/", PostDetailView.as_view(), name="post-detail")
+router.register(r'', PostView)
 
-]
+
+
+urlpatterns = router.urls
