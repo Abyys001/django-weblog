@@ -11,6 +11,7 @@ from rest_framework.generics import GenericAPIView
 from rest_framework import generics
 from rest_framework import mixins
 from rest_framework import viewsets
+from rest_framework import permissions
 
 # My model
 from .models import Post
@@ -128,6 +129,7 @@ class PostView(viewsets.ModelViewSet):
     """
     serializer_class = PostSerializer
     queryset = Post.objects.all()
-    
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
 
 # CRUD -- Create, Retrieve, Update, Delete

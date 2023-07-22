@@ -1,6 +1,6 @@
 # Post URLs
 
-from django.urls import path
+from django.urls import path, include
 
 # importing router
 from rest_framework.routers import DefaultRouter
@@ -15,5 +15,6 @@ router = DefaultRouter()
 router.register(r'', PostView)
 
 
-
-urlpatterns = router.urls
+urlpatterns = [
+    path('', include(router.urls))    
+]
