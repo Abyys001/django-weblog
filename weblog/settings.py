@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # restAPI
     'rest_framework',
-    # My Apps
+    # local
     'posts',
     'profiles',
     
