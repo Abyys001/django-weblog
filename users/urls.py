@@ -1,4 +1,4 @@
-# path file for profile app
+# path file for User app
 
 from django.urls import path
 

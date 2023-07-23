@@ -24,5 +24,5 @@ urlpatterns = [
 
     path('posts/', include('posts.urls')),
 
-    path('porfiles/', include('profiles.urls'))
+    path('porfiles/', include('users.urls'))
 ]
