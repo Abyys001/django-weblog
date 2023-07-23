@@ -18,7 +18,7 @@
             
             body {
                 font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-                background: #ffffff;
+                background: #373fb2;
             }
             
             input,
@@ -43,7 +43,7 @@
                 height: 550px;
                 margin: 0 auto 100px;
                 background: #fff;
-                box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.3), 10px 10px 15px rgba(70, 70, 70, 0.15), inset -10px -10px 15px rgba(255, 255, 255, 0.3), inset 10px 10px 15px rgba(70, 70, 70, 0.15);
+                {% comment %} box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.3), 10px 10px 15px rgba(70, 70, 70, 0.15), inset -10px -10px 15px rgba(255, 255, 255, 0.3), inset 10px 10px 15px rgba(70, 70, 70, 0.15); {% endcomment %}
             }
             
             .form {
@@ -67,9 +67,9 @@
                 padding-left: 260px;
                 background: #fff;
                 -webkit-transition: -webkit-transform 1.2s ease-in-out;
-                transition: -webkit-transform 1.2s ease-in-out;
+                transition: -webkit-transform 1.2s ease-in-out; 
                 transition: transform 1.2s ease-in-out;
-                transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+                transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out; 
             }
             
             .cont.s--signup .sub-cont {
@@ -121,7 +121,7 @@
                 top: 0;
                 width: 100%;
                 height: 100%;
-                background: rgba(0, 0, 0, 0.6);
+                background: rgba(0, 0, 0, 1);
             }
             
             .cont.s--signup .img:before {
@@ -267,7 +267,7 @@
             .submit {
                 margin-top: 40px;
                 margin-bottom: 20px;
-                background: #d4af7a;
+                background: #1902ed;
                 text-transform: uppercase;
             }
             
@@ -333,7 +333,11 @@
                       <div class="img__text m--in">
                       
                           <h3>If you already has an account, just sign in.<h3>
-                      </div>
+
+                            <br>
+                            <img src="./images/big-guy.gif" />
+                      {% comment %} background-image: url('./images/v-road.gif'); {% endcomment %}
+                          </div>
                       <div class="img__btn">
                           <span class="m--up">Sign Up</span>
                           <span class="m--in">Sign In</span>
