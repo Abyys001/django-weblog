@@ -12,7 +12,7 @@ class Profile(models.Model):
     last_modify = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
-        return f"{self.username}"
+        return self.username
     
     
 
