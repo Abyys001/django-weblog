@@ -2,11 +2,9 @@
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>
+        Vaporware-Road
+    </title>
     <style>
         *,
         *:before,
@@ -51,8 +49,6 @@
             height: 100%;
             -webkit-transition: -webkit-transform 1.2s ease-in-out;
             transition: -webkit-transform 1.2s ease-in-out;
-            transition: transform 1.2s ease-in-out;
-            transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
             padding: 50px 30px 0;
         }
 
@@ -67,12 +63,9 @@
             background: #fff;
             -webkit-transition: -webkit-transform 1.2s ease-in-out;
             transition: -webkit-transform 1.2s ease-in-out;
-            transition: transform 1.2s ease-in-out;
-            transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
         }
 
         .cont.s--signup .sub-cont {
-            -webkit-transform: translate3d(-640px, 0, 0);
             transform: translate3d(-640px, 0, 0);
         }
 
@@ -108,8 +101,6 @@
             opacity: .8;
             background-size: cover;
             -webkit-transition: -webkit-transform 1.2s ease-in-out;
-            transition: transform 1.2s ease-in-out;
-            transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
         }
 
         .img:after {
@@ -123,7 +114,6 @@
         }
 
         .cont.s--signup .img:before {
-            -webkit-transform: translate3d(640px, 0, 0);
             transform: translate3d(640px, 0, 0);
         }
 
@@ -138,8 +128,6 @@
             color: #fff;
             -webkit-transition: -webkit-transform 1.2s ease-in-out;
             transition: -webkit-transform 1.2s ease-in-out;
-            transition: transform 1.2s ease-in-out;
-            transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
         }
 
         .img__text h2 {
@@ -153,17 +141,14 @@
         }
 
         .cont.s--signup .img__text.m--up {
-            -webkit-transform: translateX(520px);
             transform: translateX(520px);
         }
 
         .img__text.m--in {
-            -webkit-transform: translateX(-520px);
             transform: translateX(-520px);
         }
 
         .cont.s--signup .img__text.m--in {
-            -webkit-transform: translateX(0);
             transform: translateX(0);
         }
 
@@ -207,22 +192,17 @@
             height: 100%;
             -webkit-transition: -webkit-transform 1.2s;
             transition: -webkit-transform 1.2s;
-            transition: transform 1.2s;
-            transition: transform 1.2s, -webkit-transform 1.2s;
         }
 
         .img__btn span.m--in {
-            -webkit-transform: translateY(-72px);
             transform: translateY(-72px);
         }
 
         .cont.s--signup .img__btn span.m--in {
-            -webkit-transform: translateY(0);
             transform: translateY(0);
         }
 
         .cont.s--signup .img__btn span.m--up {
-            -webkit-transform: translateY(72px);
             transform: translateY(72px);
         }
 
@@ -243,6 +223,11 @@
             font-size: 12px;
             color: #cfcfcf;
             text-transform: uppercase;
+        }
+
+        img.sticky {
+          position: sticky;
+          top: 0;
         }
 
         input {
@@ -289,17 +274,14 @@
             transition-timing-function: ease-in-out;
             -webkit-transition-duration: 1.2s;
             transition-duration: 1.2s;
-            -webkit-transform: translate3d(640px, 0, 0);
             transform: translate3d(640px, 0, 0);
         }
 
         .sign-up {
-            -webkit-transform: translate3d(-900px, 0, 0);
             transform: translate3d(-900px, 0, 0);
         }
 
         .cont.s--signup .sign-up {
-            -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
         }
     </style>
@@ -318,7 +300,6 @@
             <span>Password</span>
             <input type="password"/>
         </label>
-        <p class="forgot-pass">Forgot password?</p>
         <button type="button" class="submit">Sign In</button>
 
     </div>
@@ -332,9 +313,8 @@
 
                 <h3>If you already has an account, just sign in.</h3>
 
-                    <br>
-                    <img src="./images/big-guy.gif"/>
-<!--                background-image: url('./images/v-road.gif'); -->
+                <br>
+                <img class="img.sticky" src="./images/big-guy.gif"/>
             </div>
             <div class="img__btn">
                 <span class="m--up">Sign Up</span>
