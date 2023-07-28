@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List</title>
+</head>
+<body>
+  <h2>My Posts</h2>
+
+    <ol>
+        {% for p in posts %}
+            <li>
+                <h5> <b>{{ p.title }}</b> (<a href="/posts/{{ p.pk }}">view</a>)</h5>
+
+            </li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
+
+

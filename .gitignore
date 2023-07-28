@@ -1,0 +1,5 @@
+*.sqlite3
+./Weblog-project/venv/
+./Digital-Products-project/venv/
+.idea/
+.github/
