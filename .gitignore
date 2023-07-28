@@ -3,3 +3,4 @@
 ./Digital-Products-project/venv/
 .idea/
 .github/
+**/__pycache__/
