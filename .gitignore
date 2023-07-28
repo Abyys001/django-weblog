@@ -4,3 +4,4 @@
 .idea/
 .github/
 **/__pycache__/
+*.pyc
