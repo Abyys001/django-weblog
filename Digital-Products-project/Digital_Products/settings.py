@@ -24,6 +24,7 @@ SECRET_KEY = 'django-insecure-q+s&jy7myqexq8-nmy43g$t$v$5@xpw&cmai00wv6j0gryh=@-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+IS_DEVEL = True
 
 ALLOWED_HOSTS = []
 
@@ -73,11 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Digital_Products.wsgi.application'
 
-# media 
-MEDIA_ROOT = BASE_DIR / 'media'
-
-MEDIA_URL =  "/media/"
-
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -114,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'asia/tehran'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
@@ -128,5 +124,13 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+
+# media 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+MEDIA_URL =  "/media/"
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
