@@ -5,3 +5,4 @@
 .github/
 **/__pycache__/
 *.pyc
+local_setting.py
