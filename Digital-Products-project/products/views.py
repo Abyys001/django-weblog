@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views import View
 
 from .models import Category, File, Product
@@ -11,4 +11,4 @@ class ProductListView(View):
     def get(self, request):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
-        return HttpResponse(serializer)
+        return JsonResponse(serializer.data, safe=False)
