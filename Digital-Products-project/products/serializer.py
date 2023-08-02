@@ -6,7 +6,7 @@ from .models import Category,Product,File
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('titel', 'description', 'avatar')
+        fields = ('title', 'description', 'avatar')
  
 class FileSerializer(serializers.ModelSerializer):
     class Meta:

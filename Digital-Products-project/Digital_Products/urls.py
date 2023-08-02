@@ -23,7 +23,7 @@ from products import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products/', include(urls.))
+    path('products/', include(urls.urlpatterns))
 ]
 
 # if settings.IS_DEVEL:
