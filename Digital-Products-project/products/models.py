@@ -24,6 +24,10 @@ class Category(models.Model):
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
 
+    def __str__(self) -> str:
+        return self.title
+
+
 
 class Product(models.Model):
 
@@ -33,7 +37,7 @@ class Product(models.Model):
 
     description = models.TextField(_('description'), blank=True)
 
-    avatar = models.ImageField(_("avatar"), upload_to='avatar/products/')
+    avatar = models.ImageField(_("avatar"), upload_to='avatar/products/', blank=True, null=True)
 
     is_enable = models.BooleanField(_('is enable'), default=True)
 
@@ -46,7 +50,11 @@ class Product(models.Model):
         managed = True
         verbose_name = 'Product'
         verbose_name_plural = 'Products'
+    
 
+    def __str__(self) -> str:
+        return self.title
+    
 
 class File(models.Model):
 
@@ -65,6 +73,9 @@ class File(models.Model):
     created_time = models.DateTimeField(_('created time'), auto_now_add=True)
 
     updated_time = models.TimeField(_('updated time'), auto_now=True)
+
+    def __str__(self) -> str:
+        return self.title
     
     class Meta:
         db_table = 'Files'
