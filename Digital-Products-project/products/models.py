@@ -4,13 +4,13 @@ from django.utils.translation import gettext_lazy as _
 
 class Category(models.Model):
 
-    parent = models.ForeignKey("self", verbose_name=_("parent"), on_delete=models.CASCADE)
+    parent = models.ForeignKey("self", verbose_name=_("parent"), blank=True,null=True, on_delete=models.CASCADE)
 
     title = models.CharField(_('title'), max_length=50)
 
     description = models.TextField(_('description'), blank=True)
 
-    avatar = models.ImageField(_("avatar"), upload_to='avatar/categorys/')
+    avatar = models.ImageField(_("avatar"),blank=True , upload_to='avatar/categorys/')
 
     is_enable = models.BooleanField(_('is enable'), default=True)
 
