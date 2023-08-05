@@ -11,7 +11,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 
-class FileInlineAdmin(admin.StackedInline):
+class FileAdminInline(admin.StackedInline):
     model = File
     fields = ['title', 'file']
     extra = 0
@@ -24,5 +24,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ['category']
     filter_horizontal = ['category']
     search_fields = ['titel']
+    inlines = [FileAdminInline]
 
 
