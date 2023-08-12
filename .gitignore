@@ -7,3 +7,4 @@
 *.pyc
 local_setting.py
 venv/
+./gitignore
